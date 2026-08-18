@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio - Fifi Lita</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --primary: #d9825b;
+            --primary-dark: #b85b34;
+            --bg-color: #fdfaf7;
+            --card-bg: #ffffff;
+            --text-color: #333333;
+            --text-light: #666666;
+            --border-color: #f0e6df;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* Navigation Bar */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            z-index: 1000;
+            padding: 15px 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 120px 10% 60px;
+            background: linear-gradient(135deg, rgba(217, 130, 91, 0.1), rgba(184, 91, 52, 0.05));
+        }
+
+        .hero-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 50px;
+            max-width: 1000px;
+            width: 100%;
+        }
+
+        /* Desain Foto Profil */
+        .profile-img-container {
+            flex-shrink: 0;
+            position: relative;
+        }
+
+        .profile-img {
+            width: 230px;
+            height: 230px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid #ffffff;
+            box-shadow: 0 10px 25px rgba(184, 91, 52, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .profile-img:hover {
+            transform: scale(1.03);
+        }
+
+        .hero-content {
+            max-width: 600px;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            color: var(--primary-dark);
+            margin-bottom: 8px;
+        }
+
+        .hero h3 {
+            font-size: 1.3rem;
+            color: var(--text-light);
+            font-weight: 500;
+            margin-bottom: 18px;
+        }
+
+        .hero p {
+            font-size: 1.05rem;
+            margin-bottom: 25px;
+            color: #555;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--primary-dark);
+            color: #fff;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .btn:hover {
+            background-color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        /* General Section */
+        section {
+            padding: 80px 10%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            color: var(--primary-dark);
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            width: 60px;
+            height: 3px;
+            background-color: var(--primary);
+            display: block;
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        /* About & Grid Layout */
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card h3 {
+            color: var(--primary-dark);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Skills Badges */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .skill-badge {
+            background-color: #f4dcd0;
+            color: #7a3518;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        /* Timeline / Pendidikan */
+        .timeline {
+            border-left: 3px solid var(--primary);
+            padding-left: 20px;
+            margin-top: 15px;
+        }
+
+        .timeline-item {
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '';
+            width: 12px;
+            height: 12px;
+            background-color: var(--primary);
+            border-radius: 50%;
+            position: absolute;
+            left: -28px;
+            top: 5px;
+        }
+
+        .timeline-title {
+            font-weight: 700;
+            color: var(--text-color);
+        }
+
+        .timeline-date {
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        /* Contact Section */
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            text-align: center;
+        }
+
+        .contact-card {
+            background-color: var(--card-bg);
+            padding: 25px;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+
+        .contact-card i {
+            font-size: 2rem;
+            color: var(--primary-dark);
+            margin-bottom: 10px;
+        }
+
+        .contact-card h4 {
+            margin-bottom: 5px;
+        }
+
+        .contact-card p, .contact-card a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 0.95rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2c3e50;
+            color: #ffffff;
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Mobile */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .hero-container {
+                flex-direction: column;
+                text-align: center;
+                gap: 30px;
+            }
+
+            .profile-img {
+                width: 180px;
+                height: 180px;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            section {
+                padding: 60px 5%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Menu Navigasi -->
+    <nav>
+        <div class="logo">Fifi Lita</div>
+        <ul class="nav-links">
+            <li><a href="#home">Beranda</a></li>
+            <li><a href="#about">Tentang</a></li>
+            <li><a href="#skills">Keahlian</a></li>
+            <li><a href="#education">Pendidikan</a></li>
+            <li><a href="#contact">Kontak</a></li>
+        </ul>
+    </nav>
+
+    <!-- Header / Hero Section dengan Foto Profil -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="profile-img-container">
+                <!-- PETUNJUK: Ganti 'foto-profil.jpg' dengan nama/lokasi foto Anda -->
+                <img src="FIFI.jpg" alt="Foto Fifi Lita" class="profile-img">
+            </div>
+            <div class="hero-content">
+                <h1>Fifi Lita</h1>
+                <h3>Junior Web Developer & IT Enthusiast</h3>
+                <p>Siswi SMKN 01 Semparuk yang berdedikasi tinggi dalam mempelajari dunia pengembangan web, pengelolaan basis data, dan pemrograman komputer.</p>
+                <a href="#contact" class="btn">Hubungi Saya</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tentang Saya -->
+    <section id="about">
+        <h2 class="section-title">Tentang Saya</h2>
+        <div class="card" style="max-width: 800px; margin: 0 auto;">
+            <p style="text-align: justify; font-size: 1.05rem;">
+                Saya memiliki ketertarikan yang mendalam terhadap dunia Teknologi Informasi. Selama menempuh pendidikan, saya aktif mempelajari pemrograman web, pengontrolan versi kode dengan GitHub, serta pengolahan data. Saya adalah tipe pembelajar cepat, disiplin, dan siap berkembang dalam proyek-proyek teknologi masa depan.
+            </p>
+        </div>
+    </section>
+
+    <!-- Keahlian & Bahasa -->
+    <section id="skills" style="background-color: #faf4f0;">
+        <h2 class="section-title">Keahlian & Kemampuan</h2>
+        <div class="about-grid">
+            <div class="card">
+                <h3><i class="fa-solid fa-code"></i> Keahlian Komputer</h3>
+                <div class="skills-container">
+                    <span class="skill-badge">Web Programming</span>
+                    <span class="skill-badge">GitHub</span>
+                    <span class="skill-badge">Databases</span>
+                    <span class="skill-badge">Microsoft Windows</span>
+                    <span class="skill-badge">Microsoft Excel</span>
+                    <span class="skill-badge">Microsoft PowerPoint</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3><i class="fa-solid fa-language"></i> Kemampuan Bahasa</h3>
+                <div class="skills-container">
+                    <span class="skill-badge" style="background-color: #e2e8f0; color: #334155;">Bahasa Indonesia (Aktif)</span>
+                    <span class="skill-badge" style="background-color: #e2e8f0; color: #334155;">Bahasa Inggris (Dasar)</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Riwayat Pendidikan -->
+    <section id="education">
+        <h2 class="section-title">Riwayat Pendidikan</h2>
+        <div class="card" style="max-width: 700px; margin: 0 auto;">
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-title">SMKN 01 Semparuk</div>
+                    <div class="timeline-date">2024 – 2027 (Sedang Menempuh Pendidikan)</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-title">SMPN 03 Semparuk</div>
+                    <div class="timeline-date">2021 – 2024</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kontak -->
+    <section id="contact" style="background-color: #faf4f0;">
+        <h2 class="section-title">Hubungi Saya</h2>
+        <div class="contact-container">
+            <div class="contact-card">
+                <i class="fa-solid fa-envelope"></i>
+                <h4>Email</h4>
+                <p><a href="mailto:Fifi.fiii@email.com">Fifi.fiii@email.com</a></p>
+            </div>
+            <div class="contact-card">
+                <i class="fa-solid fa-phone"></i>
+                <h4>Telepon / WhatsApp</h4>
+                <p><a href="https://wa.me/6283836640670">083836640670</a></p>
+            </div>
+            <div class="contact-card">
+                <i class="fa-solid fa-location-dot"></i>
+                <h4>Lokasi</h4>
+                <p>Segedong, Tebas, Kab. Sambas</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; Portofolio Fifi Lita.</p>
+    </footer>
+
+</body>
+</html>
